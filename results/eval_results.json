@@ -1,0 +1,340 @@
+{
+  "metadata": {
+    "system": "ASTRA: Autonomous Security and Threat Response using Agentic AI",
+    "backend": "SimChain",
+    "timestamp": "2026-10-23 18:41:41 UTC",
+    "total_candidates_evaluated": 120,
+    "data_nature": "SYNTHETIC SIMULATION BENCHMARK (All numbers derived empirically from simulation execution)"
+  },
+  "pre_admission": {
+    "total_evaluated": 120,
+    "formula_only_metrics": {
+      "accuracy": 0.6583,
+      "precision": 1.0,
+      "recall": 0.3492,
+      "fpr": 0.0,
+      "fnr": 0.6508,
+      "confusion_matrix": {
+        "TP": 22,
+        "FP": 0,
+        "TN": 57,
+        "FN": 41
+      }
+    },
+    "formula_escalation_metrics": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "fpr": 0.0,
+      "fnr": 0.0,
+      "confusion_matrix": {
+        "TP": 63,
+        "FP": 0,
+        "TN": 57,
+        "FN": 0
+      }
+    },
+    "per_attack_formula": {
+      "sybil": {
+        "detected": 1,
+        "total": 14
+      },
+      "stealthy_sybil": {
+        "detected": 0,
+        "total": 10
+      },
+      "malicious_wallet": {
+        "detected": 0,
+        "total": 14
+      },
+      "finney": {
+        "detected": 10,
+        "total": 10
+      },
+      "eclipse": {
+        "detected": 10,
+        "total": 10
+      },
+      "partial_eclipse": {
+        "detected": 1,
+        "total": 5
+      }
+    },
+    "per_attack_escalation": {
+      "sybil": {
+        "detected": 14,
+        "total": 14
+      },
+      "stealthy_sybil": {
+        "detected": 10,
+        "total": 10
+      },
+      "malicious_wallet": {
+        "detected": 14,
+        "total": 14
+      },
+      "finney": {
+        "detected": 10,
+        "total": 10
+      },
+      "eclipse": {
+        "detected": 10,
+        "total": 10
+      },
+      "partial_eclipse": {
+        "detected": 5,
+        "total": 5
+      }
+    },
+    "sample_records": [
+      {
+        "candidate_id": "CAND_001",
+        "type": "honest",
+        "label": "HONEST",
+        "tf": 0.908,
+        "ar": 0.048,
+        "pt": 0.878,
+        "escalation": false,
+        "action_formula": "ACCEPT",
+        "action_escalation": "ACCEPT"
+      },
+      {
+        "candidate_id": "CAND_002",
+        "type": "honest",
+        "label": "HONEST",
+        "tf": 0.914,
+        "ar": 0.048,
+        "pt": 0.889,
+        "escalation": false,
+        "action_formula": "ACCEPT",
+        "action_escalation": "ACCEPT"
+      },
+      {
+        "candidate_id": "CAND_003",
+        "type": "honest",
+        "label": "HONEST",
+        "tf": 0.899,
+        "ar": 0.048,
+        "pt": 0.864,
+        "escalation": false,
+        "action_formula": "ACCEPT",
+        "action_escalation": "ACCEPT"
+      },
+      {
+        "candidate_id": "CAND_004",
+        "type": "honest",
+        "label": "HONEST",
+        "tf": 0.887,
+        "ar": 0.048,
+        "pt": 0.844,
+        "escalation": false,
+        "action_formula": "ACCEPT",
+        "action_escalation": "ACCEPT"
+      },
+      {
+        "candidate_id": "CAND_005",
+        "type": "honest",
+        "label": "HONEST",
+        "tf": 0.888,
+        "ar": 0.048,
+        "pt": 0.846,
+        "escalation": false,
+        "action_formula": "ACCEPT",
+        "action_escalation": "ACCEPT"
+      },
+      {
+        "candidate_id": "CAND_006",
+        "type": "honest",
+        "label": "HONEST",
+        "tf": 0.911,
+        "ar": 0.048,
+        "pt": 0.884,
+        "escalation": false,
+        "action_formula": "ACCEPT",
+        "action_escalation": "ACCEPT"
+      },
+      {
+        "candidate_id": "CAND_007",
+        "type": "honest",
+        "label": "HONEST",
+        "tf": 0.879,
+        "ar": 0.048,
+        "pt": 0.831,
+        "escalation": false,
+        "action_formula": "ACCEPT",
+        "action_escalation": "ACCEPT"
+      },
+      {
+        "candidate_id": "CAND_008",
+        "type": "honest",
+        "label": "HONEST",
+        "tf": 0.903,
+        "ar": 0.052,
+        "pt": 0.873,
+        "escalation": false,
+        "action_formula": "ACCEPT",
+        "action_escalation": "ACCEPT"
+      },
+      {
+        "candidate_id": "CAND_009",
+        "type": "honest",
+        "label": "HONEST",
+        "tf": 0.912,
+        "ar": 0.048,
+        "pt": 0.885,
+        "escalation": false,
+        "action_formula": "ACCEPT",
+        "action_escalation": "ACCEPT"
+      },
+      {
+        "candidate_id": "CAND_010",
+        "type": "honest",
+        "label": "HONEST",
+        "tf": 0.861,
+        "ar": 0.048,
+        "pt": 0.801,
+        "escalation": false,
+        "action_formula": "ACCEPT",
+        "action_escalation": "ACCEPT"
+      }
+    ]
+  },
+  "observation_window": {
+    "sleeper_id": "SLEEPER_TEST_01",
+    "window_size": 10,
+    "detected": true,
+    "detected_at_tx_index": 5,
+    "detection_delay_txs": 1,
+    "is_graduated": false,
+    "step_logs": [
+      {
+        "tx_index": 1,
+        "tf": 0.708,
+        "alert": false,
+        "action": "CONTINUE"
+      },
+      {
+        "tx_index": 2,
+        "tf": 0.719,
+        "alert": false,
+        "action": "CONTINUE"
+      },
+      {
+        "tx_index": 3,
+        "tf": 0.722,
+        "alert": false,
+        "action": "CONTINUE"
+      },
+      {
+        "tx_index": 4,
+        "tf": 0.75,
+        "alert": false,
+        "action": "CONTINUE"
+      },
+      {
+        "tx_index": 5,
+        "tf": 0.772,
+        "alert": true,
+        "action": "INVESTIGATE"
+      },
+      {
+        "tx_index": 6,
+        "tf": 0.775,
+        "alert": true,
+        "action": "INVESTIGATE"
+      },
+      {
+        "tx_index": 7,
+        "tf": 0.779,
+        "alert": true,
+        "action": "INVESTIGATE"
+      },
+      {
+        "tx_index": 8,
+        "tf": 0.782,
+        "alert": true,
+        "action": "INVESTIGATE"
+      },
+      {
+        "tx_index": 9,
+        "tf": 0.786,
+        "alert": true,
+        "action": "INVESTIGATE"
+      },
+      {
+        "tx_index": 10,
+        "tf": 0.796,
+        "alert": true,
+        "action": "INVESTIGATE"
+      }
+    ]
+  },
+  "post_admission": {
+    "HONEST": {
+      "label": "Honest Baseline",
+      "total_blocks_mined": 36,
+      "orphaned_blocks": 0,
+      "reorgs_observed": 0,
+      "alerts_emitted": 0,
+      "detected": true,
+      "detection_delay_seconds": null,
+      "sample_alert": []
+    },
+    "SELFISH": {
+      "label": "Selfish Mining",
+      "total_blocks_mined": 24,
+      "orphaned_blocks": 12,
+      "reorgs_observed": 1,
+      "alerts_emitted": 4,
+      "detected": true,
+      "detection_delay_seconds": 54.08,
+      "sample_alert": [
+        "Orphan rate spiked to 27.3% (3/11 blocks).",
+        "Elevated significantly above honest baseline (2.0%).",
+        "Signifies intentional branch invalidation and selfish mining block withholding."
+      ]
+    },
+    "COALITION_51": {
+      "label": "51% Hashpower Coalition",
+      "total_blocks_mined": 22,
+      "orphaned_blocks": 13,
+      "reorgs_observed": 5,
+      "alerts_emitted": 14,
+      "detected": true,
+      "detection_delay_seconds": 0.0,
+      "sample_alert": [
+        "CRITICAL deep chain reorganization observed: 4 blocks invalidated.",
+        "Private hostile branch published replacing honest longest chain.",
+        "Previously confirmed transactions reversed on orphaned fork."
+      ]
+    },
+    "BLOCK_WITHHOLDING": {
+      "label": "Block Withholding",
+      "total_blocks_mined": 36,
+      "orphaned_blocks": 0,
+      "reorgs_observed": 0,
+      "alerts_emitted": 3,
+      "detected": true,
+      "detection_delay_seconds": 54.08,
+      "sample_alert": [
+        "Miner 0xwithhold... average publication delay is 27.3s (28.4x network median of 0.96s).",
+        "100.0% (2/2) of mined blocks were withheld.",
+        "Systematic latency indicates block withholding strategy."
+      ]
+    },
+    "RACE_DOUBLE_SPEND": {
+      "label": "Race Double-Spend",
+      "total_blocks_mined": 36,
+      "orphaned_blocks": 0,
+      "reorgs_observed": 0,
+      "alerts_emitted": 2,
+      "detected": true,
+      "detection_delay_seconds": 973.06,
+      "sample_alert": [
+        "Mempool conflict: broadcast tx 0xmerchant... to 0xmerchant...",
+        "Conflicting on-chain tx 0xrace_con... to 0xrace_att... on block #1.",
+        "Divergent recipient double-spend replacement detected."
+      ]
+    }
+  }
+}

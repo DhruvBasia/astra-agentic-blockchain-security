@@ -1,0 +1,51 @@
+# Python / tooling
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+
+# Local configuration (copy .env.example to .env)
+.env
+.claude/
+
+# Research literature, reports and slides (copyrighted or private; not part of the code release)
+*.pdf
+*.pptx
+*.docx
+*.jpeg
+*.jpg
+*.zip
+AgenticAI_Minor_2
+
+# Book-chapter manuscript (under review; not released with the code)
+paper/ASTRA_chapter_draft.md
+paper/tables_update.md
+overleaf/
+Springer_Book_Chapter/
+Springer_svmult_download/
+We_Agentic_AI_export/
+
+# Personal notes and extracted text
+CLAUDE_PROJECT_CONTEXT.md
+VIVA_CHEAT_SHEET.txt
+SLIDE_BY_SLIDE_VIVA_GUIDE.md
+ASTRA_EVALUATION_GUIDE.md
+extracted_*.txt
+synopsis_extracted.txt
+main_doc.txt
+partner_doc.txt
+
+# Older copy superseded by legacy/AgenticAI_Minor_v2
+AgenticAI_Minor/
+
+# Video build artefacts
+video/build/
+video/renders/
+*.mp4
+*.webm
+
+# Attack-lab runs made before the 23 Oct 2026 detector fixes (kept locally only)
+results/attack_runs/20261009_*

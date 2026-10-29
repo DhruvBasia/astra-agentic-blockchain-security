@@ -1,0 +1,393 @@
+{
+  "run": {
+    "attack_type": "sybil",
+    "title": "Sybil Attack",
+    "started_at_utc": "2026-10-23 18:40:40 UTC",
+    "backend": {
+      "backend": "SimChain",
+      "block_number": 33,
+      "timestamp": 1700032354.5070643,
+      "total_accounts": 17,
+      "total_transactions": 33,
+      "deterministic_seed": 42
+    },
+    "candidate_id": "NODE_SYBIL",
+    "candidate_wallet": "0x8743b2237dbd9150e09a04993544873b364f8b90",
+    "ground_truth_label": "ATTACK"
+  },
+  "attack": {
+    "playbook_steps": [
+      "One funder wallet creates the candidate plus 3 sibling identities.",
+      "All 4 identities are funded with an identical 0.2 ETH within about a minute.",
+      "The identities pass 0.01 ETH around in a closed ring to fake activity.",
+      "The candidate then requests admission as if it were an independent node."
+    ],
+    "on_chain_transactions": [
+      {
+        "block": 26,
+        "tx_hash": "0x03d4c635b7922fd4d41a46158681c18fa8a2c16917264b9e1fbeb4e3cd07d745",
+        "from": "0x1429d6a18568a07a87ca4399eaa12504ea33256d",
+        "from_role": "",
+        "to": "0x8743b2237dbd9150e09a04993544873b364f8b90",
+        "to_role": "CANDIDATE",
+        "value_eth": 0.2,
+        "fee_eth": 0.00021,
+        "nonce": 0,
+        "status": "SUCCESS",
+        "timestamp": 1700032234.6663203
+      },
+      {
+        "block": 27,
+        "tx_hash": "0x244b291806e84137831c483ba210cc576216fe516d57fbc0209ba29a54081724",
+        "from": "0x1429d6a18568a07a87ca4399eaa12504ea33256d",
+        "from_role": "",
+        "to": "0x6baf6887fa801a2fd88d1601aa428652e2da0439",
+        "to_role": "cluster",
+        "value_eth": 0.2,
+        "fee_eth": 0.00021,
+        "nonce": 1,
+        "status": "SUCCESS",
+        "timestamp": 1700032242.4329553
+      },
+      {
+        "block": 28,
+        "tx_hash": "0x0c4819b28f9f2b0da2c43faae56084459e70bb75e49c63c3be4fe1f3400d1718",
+        "from": "0x1429d6a18568a07a87ca4399eaa12504ea33256d",
+        "from_role": "",
+        "to": "0x264c12bd4bdc41159dba14b76b7f34b5d04f7953",
+        "to_role": "cluster",
+        "value_eth": 0.2,
+        "fee_eth": 0.00021,
+        "nonce": 2,
+        "status": "SUCCESS",
+        "timestamp": 1700032257.303272
+      },
+      {
+        "block": 29,
+        "tx_hash": "0x23dc8d3da12d8a71e0c305d6651692701716ece84aeb864a6e5f2acb7db6d78b",
+        "from": "0x1429d6a18568a07a87ca4399eaa12504ea33256d",
+        "from_role": "",
+        "to": "0x5ad30c5baad27f885137c313f07166ebb39c7472",
+        "to_role": "cluster",
+        "value_eth": 0.2,
+        "fee_eth": 0.00021,
+        "nonce": 3,
+        "status": "SUCCESS",
+        "timestamp": 1700032277.4189153
+      },
+      {
+        "block": 30,
+        "tx_hash": "0x48552a0fc445e0f037270f5cd110530beec44d13443c8a86e603c87c7730cc93",
+        "from": "0x8743b2237dbd9150e09a04993544873b364f8b90",
+        "from_role": "CANDIDATE",
+        "to": "0x6baf6887fa801a2fd88d1601aa428652e2da0439",
+        "to_role": "cluster",
+        "value_eth": 0.01,
+        "fee_eth": 0.00021,
+        "nonce": 0,
+        "status": "SUCCESS",
+        "timestamp": 1700032304.6409736
+      },
+      {
+        "block": 31,
+        "tx_hash": "0x2672e2b0ed4d4a51b37f8a0ccb6124440ca38e3a86342731fa4e7e31986d1778",
+        "from": "0x6baf6887fa801a2fd88d1601aa428652e2da0439",
+        "from_role": "cluster",
+        "to": "0x264c12bd4bdc41159dba14b76b7f34b5d04f7953",
+        "to_role": "cluster",
+        "value_eth": 0.01,
+        "fee_eth": 0.00021,
+        "nonce": 0,
+        "status": "SUCCESS",
+        "timestamp": 1700032317.6978
+      },
+      {
+        "block": 32,
+        "tx_hash": "0xd52f4d18dd87268923a07d48d30fd9e7fd1663ca537cee816de0e43732ff1de4",
+        "from": "0x264c12bd4bdc41159dba14b76b7f34b5d04f7953",
+        "from_role": "cluster",
+        "to": "0x5ad30c5baad27f885137c313f07166ebb39c7472",
+        "to_role": "cluster",
+        "value_eth": 0.01,
+        "fee_eth": 0.00021,
+        "nonce": 0,
+        "status": "SUCCESS",
+        "timestamp": 1700032330.89744
+      },
+      {
+        "block": 33,
+        "tx_hash": "0x475313f95e8c8198723d4e13f5c1be11e98852f817edaab3fc794ca5b57a0333",
+        "from": "0x5ad30c5baad27f885137c313f07166ebb39c7472",
+        "from_role": "cluster",
+        "to": "0x8743b2237dbd9150e09a04993544873b364f8b90",
+        "to_role": "CANDIDATE",
+        "value_eth": 0.01,
+        "fee_eth": 0.00021,
+        "nonce": 0,
+        "status": "SUCCESS",
+        "timestamp": 1700032354.5070643
+      }
+    ],
+    "mempool_sightings": [],
+    "peer_table": [
+      {
+        "node_id": "BACKBONE_000",
+        "ip": "100.0.164.29",
+        "subnet": "100.0.0.0/16",
+        "asn": "AS15169",
+        "connection_age_days": 24.714171534593362,
+        "reported_height": 25,
+        "is_backbone": true
+      },
+      {
+        "node_id": "BACKBONE_004",
+        "ip": "104.28.109.9",
+        "subnet": "104.28.0.0/16",
+        "asn": "AS701",
+        "connection_age_days": 164.3943021460111,
+        "reported_height": 25,
+        "is_backbone": true
+      },
+      {
+        "node_id": "BACKBONE_045",
+        "ip": "145.65.40.161",
+        "subnet": "145.65.0.0/16",
+        "asn": "AS3356",
+        "connection_age_days": 26.691462731627816,
+        "reported_height": 25,
+        "is_backbone": true
+      },
+      {
+        "node_id": "BACKBONE_040",
+        "ip": "140.30.144.138",
+        "subnet": "140.30.0.0/16",
+        "asn": "AS15169",
+        "connection_age_days": 60.94874855415025,
+        "reported_height": 24,
+        "is_backbone": true
+      }
+    ]
+  },
+  "agentic_analysis": {
+    "orchestration": "LangGraph StateGraph (collect -> 4 agents -> aggregate -> human_review)",
+    "node_trace": [
+      "collect",
+      "finney_agent",
+      "eclipse_agent",
+      "sybil_agent",
+      "wallet_agent",
+      "aggregate",
+      "human_review"
+    ],
+    "agents": {
+      "Sybil": {
+        "risk": 0.803,
+        "critical": true,
+        "summary": "Sybil Risk: 0.80. Detected cluster with 3 burst siblings.",
+        "evidence": [
+          "Common funder identified: 0x1429d6a1... (funded 4 accounts within 5m)",
+          "Detected 3 sibling account(s) funded with near-identical value (CV=0.00).",
+          "High closed-loop circular transfer ratio: 100.0% of transactions are internal.",
+          "Candidate account is newborn (0.0 days old)."
+        ],
+        "indicators": [
+          {
+            "name": "Burst Funding Siblings",
+            "raw_value": "3 siblings (CV=0.00)",
+            "score": 0.95,
+            "weight": 0.35,
+            "description": "Accounts funded by the same upstream entity within 5 minutes with identical amounts"
+          },
+          {
+            "name": "Closed-Loop Transfer Ratio",
+            "raw_value": "100.0%",
+            "score": 1.0,
+            "weight": 0.25,
+            "description": "Fraction of candidate transactions circulating exclusively among sibling cluster"
+          },
+          {
+            "name": "Activity Similarity",
+            "raw_value": "0.33",
+            "score": 0.3333333333333333,
+            "weight": 0.25,
+            "description": "Counterparty Jaccard similarity across sibling accounts"
+          },
+          {
+            "name": "Account Freshness",
+            "raw_value": "0.0 days",
+            "score": 0.85,
+            "weight": 0.15,
+            "description": "Time elapsed since first on-chain funding"
+          },
+          {
+            "name": "Layered Funding",
+            "raw_value": "direct",
+            "score": 0.05,
+            "weight": 0.2,
+            "description": "Funding routed through a pass-through account that forwarded most of what it received"
+          }
+        ]
+      },
+      "Wallet": {
+        "risk": 0.15,
+        "critical": false,
+        "summary": "Wallet Risk: 0.15. Normal transaction behavior.",
+        "evidence": [
+          "Velocity anomaly: 1.0 tx/min is 12.1 robust standard deviations above the network median."
+        ],
+        "indicators": [
+          {
+            "name": "Burst Inter-Arrival Ratio",
+            "raw_value": "0.0% (<10s)",
+            "score": 0.0,
+            "weight": 0.25,
+            "description": "Fraction of outgoing transactions executed under 10 seconds apart"
+          },
+          {
+            "name": "Dust Ratio",
+            "raw_value": "0.0% (<0.001 ETH)",
+            "score": 0.0,
+            "weight": 0.15,
+            "description": "High volume micro-transactions below dusting threshold"
+          },
+          {
+            "name": "Repeated Transfers",
+            "raw_value": "1x identical amount",
+            "score": 0.0,
+            "weight": 0.15,
+            "description": "Repetitive identical transfer values indicating automated scripts"
+          },
+          {
+            "name": "Fan-Out Fresh Ratio",
+            "raw_value": "0.0% (0 fresh of 1 distinct)",
+            "score": 0.0,
+            "weight": 0.15,
+            "description": "Rapid dispersal to numerous fresh unestablished addresses"
+          },
+          {
+            "name": "Failed Transaction Ratio",
+            "raw_value": "0.0% (0 failed)",
+            "score": 0.0,
+            "weight": 0.2,
+            "description": "Proportion of reverted/invalid transactions consuming state without completion"
+          },
+          {
+            "name": "Robust Frequency Z-Score",
+            "raw_value": "Z=12.06 (1.0 tx/min)",
+            "score": 1.0,
+            "weight": 0.1,
+            "description": "Median/MAD standardized frequency deviation from network baseline"
+          }
+        ]
+      },
+      "Finney": {
+        "risk": 0.069,
+        "critical": false,
+        "summary": "Finney Risk: 0.07. Clean transaction settlement record.",
+        "evidence": [
+          "No conflicting mempool sightings or withheld block propagation anomalies."
+        ],
+        "indicators": [
+          {
+            "name": "Mempool Conflict Status",
+            "raw_value": "CLEAN",
+            "score": 0.05,
+            "weight": 0.45,
+            "description": "Presence of conflicting mempool transactions with different destination addresses"
+          },
+          {
+            "name": "Hidden Block Withholding",
+            "raw_value": "NONE",
+            "score": 0.05,
+            "weight": 0.35,
+            "description": "Block containing self-transfer was withheld prior to merchant payment release"
+          },
+          {
+            "name": "Propagation Delay Anomaly",
+            "raw_value": "0.0x baseline",
+            "score": 0.05,
+            "weight": 0.2,
+            "description": "Block delivery arrival lag relative to network propagation median"
+          }
+        ]
+      },
+      "Eclipse": {
+        "risk": 0.184,
+        "critical": false,
+        "summary": "Eclipse Risk: 0.18. Well-connected and diversified peer graph.",
+        "evidence": [
+          "Peer connectivity exhibits healthy topological dispersion across multiple ASNs and core backbone."
+        ],
+        "indicators": [
+          {
+            "name": "Herfindahl ASN Concentration",
+            "raw_value": "HHI=0.38 (3 unique ASNs)",
+            "score": 0.3,
+            "weight": 0.25,
+            "description": "Concentration index of peer routing tables across autonomous systems"
+          },
+          {
+            "name": "Backbone Overlap",
+            "raw_value": "100.0% (4/4)",
+            "score": 0.0,
+            "weight": 0.2,
+            "description": "Proportion of peer connections linked to verified honest network backbone"
+          },
+          {
+            "name": "Disjoint Paths to Core",
+            "raw_value": "4 independent paths",
+            "score": 0.05,
+            "weight": 0.2,
+            "description": "NetworkX topological node-disjoint paths connecting candidate to honest core"
+          },
+          {
+            "name": "Peer Freshness",
+            "raw_value": "0.0% <2 days (avg 69.2 days)",
+            "score": 0.05,
+            "weight": 0.15,
+            "description": "Share of newborn connections; eclipsing peers are predominantly fresh"
+          },
+          {
+            "name": "Tip Lag",
+            "raw_value": "0.0% lagging peers",
+            "score": 0.0,
+            "weight": 0.1,
+            "description": "Percentage of peers broadcasting stale / partitioned chain tip heights"
+          },
+          {
+            "name": "Peer Count",
+            "raw_value": "4 peers",
+            "score": 0.35,
+            "weight": 0.1,
+            "description": "Degree centrality and starvation exposure of the candidate node"
+          }
+        ]
+      }
+    },
+    "positive_trust": {
+      "I": 0.39,
+      "T": 1.0,
+      "N": 0.737,
+      "H": 0.325,
+      "B": 0.7
+    },
+    "AR": 0.34,
+    "PT": 0.615,
+    "TF": 0.633,
+    "TV": 0.7,
+    "recommendation": "REJECT",
+    "escalation_flag": true,
+    "escalation_reasons": [
+      "Sybil risk 0.80 exceeds escalation threshold (0.75)",
+      "Sybil agent flagged critical cluster creation"
+    ]
+  },
+  "admin_decision": {
+    "action": "REJECT",
+    "reason": "Administrator rejected the candidate on the agents' evidence.",
+    "decided_by": "DashboardAdministrator"
+  },
+  "outcome": {
+    "candidate_admitted": false
+  }
+}

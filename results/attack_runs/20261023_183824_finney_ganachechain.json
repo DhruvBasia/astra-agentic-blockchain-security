@@ -1,0 +1,366 @@
+{
+  "run": {
+    "attack_type": "finney",
+    "title": "Finney Double-Spend Attack",
+    "started_at_utc": "2026-10-23 18:38:23 UTC",
+    "backend": {
+      "backend": "GanacheChain",
+      "rpc_url": "http://127.0.0.1:7545",
+      "connected": true,
+      "latest_block": 198,
+      "genesis_accounts": 10,
+      "revert_contract": "0x9561C133DD8580860B6b7E504bC5Aa500f0f06a7"
+    },
+    "candidate_id": "NODE_FINNEY",
+    "candidate_wallet": "0x27ed6119588a590c10d6e7b7abc519842ae9dc99",
+    "ground_truth_label": "ATTACK"
+  },
+  "attack": {
+    "playbook_steps": [
+      "The attacker mines a transfer of 0.4 ETH to its own stash wallet and keeps the block private.",
+      "It pays a merchant the same 0.4 ETH using the SAME nonce (seen only in the mempool).",
+      "The withheld block is then published, so the merchant payment can never confirm."
+    ],
+    "on_chain_transactions": [
+      {
+        "block": 194,
+        "tx_hash": "8b1e258e8145aa4b8163bca621b59fe505d341aa6696f324b4be0a08aa5e1dad",
+        "from": "0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1",
+        "from_role": "",
+        "to": "0xd119bdb766a29ef79e9535100f5fdc530549364d",
+        "to_role": "",
+        "value_eth": 2.0,
+        "fee_eth": 4.2e-05,
+        "nonce": 7,
+        "status": "SUCCESS",
+        "timestamp": 1792877502.0
+      },
+      {
+        "block": 196,
+        "tx_hash": "9ea79aa6fa59964574705ca191a135ee1e2d4fb8902c9c993a1ba297bb004d9b",
+        "from": "0xd119bdb766a29ef79e9535100f5fdc530549364d",
+        "from_role": "",
+        "to": "0x27ed6119588a590c10d6e7b7abc519842ae9dc99",
+        "to_role": "CANDIDATE",
+        "value_eth": 1.5,
+        "fee_eth": 4.2e-05,
+        "nonce": 0,
+        "status": "SUCCESS",
+        "timestamp": 1795469502.0
+      },
+      {
+        "block": 197,
+        "tx_hash": "04ac985ba85a5f0ce4cd7d932a7bd25f5420e6da10a36f6d06f315e92a265a78",
+        "from": "0x27ed6119588a590c10d6e7b7abc519842ae9dc99",
+        "from_role": "CANDIDATE",
+        "to": "0xeec6c5b2456c80ce13bb500a0b09ce569de57512",
+        "to_role": "",
+        "value_eth": 0.4,
+        "fee_eth": 4.2e-05,
+        "nonce": 0,
+        "status": "SUCCESS",
+        "timestamp": 1795469502.0
+      }
+    ],
+    "mempool_sightings": [
+      {
+        "tx_hash": "0f324ac922d0f3f746f9064c2caf91ff4dce36a2d0f23bb7d8b57e8767848b28",
+        "sender": "0x27ed6119588a590c10d6e7b7abc519842ae9dc99",
+        "nonce": 0,
+        "to": "0x813c8cd94981ffb42a4f1b54d18ff8c4c812ae64",
+        "value_eth": 0.4,
+        "fee_eth": 0.0002,
+        "seen_at": 1795469512.0,
+        "is_mined": false
+      }
+    ],
+    "peer_table": [
+      {
+        "node_id": "BACKBONE_000",
+        "ip": "100.0.164.29",
+        "subnet": "100.0.0.0/16",
+        "asn": "AS15169",
+        "connection_age_days": 164.3943021460111,
+        "reported_height": 193,
+        "is_backbone": true
+      },
+      {
+        "node_id": "BACKBONE_004",
+        "ip": "104.28.109.9",
+        "subnet": "104.28.0.0/16",
+        "asn": "AS701",
+        "connection_age_days": 26.691462731627816,
+        "reported_height": 193,
+        "is_backbone": true
+      },
+      {
+        "node_id": "BACKBONE_045",
+        "ip": "145.65.40.161",
+        "subnet": "145.65.0.0/16",
+        "asn": "AS3356",
+        "connection_age_days": 60.94874855415025,
+        "reported_height": 192,
+        "is_backbone": true
+      },
+      {
+        "node_id": "BACKBONE_040",
+        "ip": "140.30.144.138",
+        "subnet": "140.30.0.0/16",
+        "asn": "AS15169",
+        "connection_age_days": 50.34907321612237,
+        "reported_height": 193,
+        "is_backbone": true
+      },
+      {
+        "node_id": "BACKBONE_003",
+        "ip": "103.21.229.140",
+        "subnet": "103.21.0.0/16",
+        "asn": "AS8075",
+        "connection_age_days": 134.3531733703602,
+        "reported_height": 192,
+        "is_backbone": true
+      },
+      {
+        "node_id": "BACKBONE_014",
+        "ip": "114.98.217.89",
+        "subnet": "114.98.0.0/16",
+        "asn": "AS701",
+        "connection_age_days": 55.09454499529454,
+        "reported_height": 192,
+        "is_backbone": true
+      },
+      {
+        "node_id": "BACKBONE_048",
+        "ip": "148.86.120.136",
+        "subnet": "148.86.0.0/16",
+        "asn": "AS32934",
+        "connection_age_days": 148.23700463149615,
+        "reported_height": 193,
+        "is_backbone": true
+      }
+    ]
+  },
+  "agentic_analysis": {
+    "orchestration": "LangGraph StateGraph (collect -> 4 agents -> aggregate -> human_review)",
+    "node_trace": [
+      "collect",
+      "finney_agent",
+      "eclipse_agent",
+      "sybil_agent",
+      "wallet_agent",
+      "aggregate",
+      "human_review"
+    ],
+    "agents": {
+      "Sybil": {
+        "risk": 0.413,
+        "critical": false,
+        "summary": "Sybil Risk: 0.41. No significant Sybil clustering.",
+        "evidence": [
+          "Funded by 0xd119bdb7...; no other accounts funded by this source within 5m.",
+          "High closed-loop circular transfer ratio: 50.0% of transactions are internal.",
+          "Candidate account is newborn (0.0 days old)."
+        ],
+        "indicators": [
+          {
+            "name": "Burst Funding Siblings",
+            "raw_value": "0 siblings (CV=1.00)",
+            "score": 0.05,
+            "weight": 0.35,
+            "description": "Accounts funded by the same upstream entity within 5 minutes with identical amounts"
+          },
+          {
+            "name": "Closed-Loop Transfer Ratio",
+            "raw_value": "50.0%",
+            "score": 0.75,
+            "weight": 0.25,
+            "description": "Fraction of candidate transactions circulating exclusively among sibling cluster"
+          },
+          {
+            "name": "Activity Similarity",
+            "raw_value": "0.00",
+            "score": 0.0,
+            "weight": 0.25,
+            "description": "Counterparty Jaccard similarity across sibling accounts"
+          },
+          {
+            "name": "Account Freshness",
+            "raw_value": "0.0 days",
+            "score": 0.85,
+            "weight": 0.15,
+            "description": "Time elapsed since first on-chain funding"
+          },
+          {
+            "name": "Layered Funding",
+            "raw_value": "direct",
+            "score": 0.05,
+            "weight": 0.2,
+            "description": "Funding routed through a pass-through account that forwarded most of what it received"
+          }
+        ]
+      },
+      "Wallet": {
+        "risk": 0.271,
+        "critical": false,
+        "summary": "Wallet Risk: 0.27. Normal transaction behavior.",
+        "evidence": [
+          "Velocity anomaly: 1.0 tx/min is 8.5 robust standard deviations above the network median."
+        ],
+        "indicators": [
+          {
+            "name": "Burst Inter-Arrival Ratio",
+            "raw_value": "0.0% (<10s)",
+            "score": 0.0,
+            "weight": 0.25,
+            "description": "Fraction of outgoing transactions executed under 10 seconds apart"
+          },
+          {
+            "name": "Dust Ratio",
+            "raw_value": "0.0% (<0.001 ETH)",
+            "score": 0.0,
+            "weight": 0.15,
+            "description": "High volume micro-transactions below dusting threshold"
+          },
+          {
+            "name": "Repeated Transfers",
+            "raw_value": "1x identical amount",
+            "score": 0.0,
+            "weight": 0.15,
+            "description": "Repetitive identical transfer values indicating automated scripts"
+          },
+          {
+            "name": "Fan-Out Fresh Ratio",
+            "raw_value": "100.0% (1 fresh of 1 distinct)",
+            "score": 0.6,
+            "weight": 0.15,
+            "description": "Rapid dispersal to numerous fresh unestablished addresses"
+          },
+          {
+            "name": "Failed Transaction Ratio",
+            "raw_value": "0.0% (0 failed)",
+            "score": 0.0,
+            "weight": 0.2,
+            "description": "Proportion of reverted/invalid transactions consuming state without completion"
+          },
+          {
+            "name": "Robust Frequency Z-Score",
+            "raw_value": "Z=8.54 (1.0 tx/min)",
+            "score": 1.0,
+            "weight": 0.1,
+            "description": "Median/MAD standardized frequency deviation from network baseline"
+          }
+        ]
+      },
+      "Finney": {
+        "risk": 0.871,
+        "critical": true,
+        "summary": "Finney Risk: 0.87. CRITICAL Finney double-spend and block withholding signature detected!",
+        "evidence": [
+          "Conflicting nonce 0: Mempool payment to 0x813c8cd9... vs on-chain spend to 0xeec6c5b2...",
+          "CRITICAL: Conflicting transaction detected with divergent destination address.",
+          "Secret mining pattern: Block mined by candidate held private for 25.0s before broadcast, matching Finney attack profile."
+        ],
+        "indicators": [
+          {
+            "name": "Mempool Conflict Status",
+            "raw_value": "DOUBLE-SPEND",
+            "score": 0.95,
+            "weight": 0.45,
+            "description": "Presence of conflicting mempool transactions with different destination addresses"
+          },
+          {
+            "name": "Hidden Block Withholding",
+            "raw_value": "25.0s withheld",
+            "score": 0.95,
+            "weight": 0.35,
+            "description": "Block containing self-transfer was withheld prior to merchant payment release"
+          },
+          {
+            "name": "Propagation Delay Anomaly",
+            "raw_value": "1.0x baseline",
+            "score": 0.05,
+            "weight": 0.2,
+            "description": "Block delivery arrival lag relative to network propagation median"
+          }
+        ]
+      },
+      "Eclipse": {
+        "risk": 0.095,
+        "critical": false,
+        "summary": "Eclipse Risk: 0.10. Well-connected and diversified peer graph.",
+        "evidence": [
+          "Peer connectivity exhibits healthy topological dispersion across multiple ASNs and core backbone."
+        ],
+        "indicators": [
+          {
+            "name": "Herfindahl ASN Concentration",
+            "raw_value": "HHI=0.22 (5 unique ASNs)",
+            "score": 0.05,
+            "weight": 0.25,
+            "description": "Concentration index of peer routing tables across autonomous systems"
+          },
+          {
+            "name": "Backbone Overlap",
+            "raw_value": "100.0% (7/7)",
+            "score": 0.0,
+            "weight": 0.2,
+            "description": "Proportion of peer connections linked to verified honest network backbone"
+          },
+          {
+            "name": "Disjoint Paths to Core",
+            "raw_value": "7 independent paths",
+            "score": 0.05,
+            "weight": 0.2,
+            "description": "NetworkX topological node-disjoint paths connecting candidate to honest core"
+          },
+          {
+            "name": "Peer Freshness",
+            "raw_value": "0.0% <2 days (avg 91.4 days)",
+            "score": 0.05,
+            "weight": 0.15,
+            "description": "Share of newborn connections; eclipsing peers are predominantly fresh"
+          },
+          {
+            "name": "Tip Lag",
+            "raw_value": "0.0% lagging peers",
+            "score": 0.0,
+            "weight": 0.1,
+            "description": "Percentage of peers broadcasting stale / partitioned chain tip heights"
+          },
+          {
+            "name": "Peer Count",
+            "raw_value": "7 peers",
+            "score": 0.35,
+            "weight": 0.1,
+            "description": "Degree centrality and starvation exposure of the candidate node"
+          }
+        ]
+      }
+    },
+    "positive_trust": {
+      "I": 0.35,
+      "T": 0.64,
+      "N": 0.956,
+      "H": 0.3,
+      "B": 0.7
+    },
+    "AR": 0.381,
+    "PT": 0.572,
+    "TF": 0.591,
+    "TV": 0.7,
+    "recommendation": "REJECT",
+    "escalation_flag": true,
+    "escalation_reasons": [
+      "Finney risk 0.87 exceeds escalation threshold (0.75)",
+      "Finney agent flagged critical double-spend / withholding"
+    ]
+  },
+  "admin_decision": {
+    "action": "REJECT",
+    "reason": "Trust Factor (0.59) strictly below threshold TV (0.70)",
+    "decided_by": "AutoAdminPolicy"
+  },
+  "outcome": {
+    "candidate_admitted": false
+  }
+}

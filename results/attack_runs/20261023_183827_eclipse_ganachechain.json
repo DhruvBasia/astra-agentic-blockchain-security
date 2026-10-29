@@ -1,0 +1,305 @@
+{
+  "run": {
+    "attack_type": "eclipse",
+    "title": "Eclipse Attack",
+    "started_at_utc": "2026-10-23 18:38:25 UTC",
+    "backend": {
+      "backend": "GanacheChain",
+      "rpc_url": "http://127.0.0.1:7545",
+      "connected": true,
+      "latest_block": 253,
+      "genesis_accounts": 10,
+      "revert_contract": "0x59d3631c86BbE35EF041872d502F218A39FBa150"
+    },
+    "candidate_id": "NODE_ECLIPSE",
+    "candidate_wallet": "0xa60bcd98eb71b886e92bc0c12c8b6580706c6686",
+    "ground_truth_label": "ATTACK"
+  },
+  "attack": {
+    "playbook_steps": [
+      "The candidate's wallet history is ordinary (funded by an exchange).",
+      "All 8 of its peer connections sit in one attacker-controlled ASN (AS99999_BOTNET).",
+      "Those peers are freshly connected and report a chain tip 12 blocks behind."
+    ],
+    "on_chain_transactions": [
+      {
+        "block": 253,
+        "tx_hash": "a3c149fe6e519dc79c9f23db258dbbc6cae06cf7cd433a2cb24b3bceb7bddfd6",
+        "from": "0x435897ee5ea863eebf4beb39b3aba57cc6bd6799",
+        "from_role": "exchange",
+        "to": "0xa60bcd98eb71b886e92bc0c12c8b6580706c6686",
+        "to_role": "CANDIDATE",
+        "value_eth": 1.0,
+        "fee_eth": 4.2e-05,
+        "nonce": 6,
+        "status": "SUCCESS",
+        "timestamp": 1798093736.0
+      }
+    ],
+    "mempool_sightings": [],
+    "peer_table": [
+      {
+        "node_id": "ATTACKER_PEER_00",
+        "ip": "198.51.100.10",
+        "subnet": "198.51.100.0/24",
+        "asn": "AS99999_BOTNET",
+        "connection_age_days": 0.020714350087789372,
+        "reported_height": 239,
+        "is_backbone": false
+      },
+      {
+        "node_id": "ATTACKER_PEER_01",
+        "ip": "198.51.100.11",
+        "subnet": "198.51.100.0/24",
+        "asn": "AS99999_BOTNET",
+        "connection_age_days": 1.0646830103571967,
+        "reported_height": 239,
+        "is_backbone": false
+      },
+      {
+        "node_id": "ATTACKER_PEER_02",
+        "ip": "198.51.100.12",
+        "subnet": "198.51.100.0/24",
+        "asn": "AS99999_BOTNET",
+        "connection_age_days": 0.09772191264572186,
+        "reported_height": 239,
+        "is_backbone": false
+      },
+      {
+        "node_id": "ATTACKER_PEER_03",
+        "ip": "198.51.100.13",
+        "subnet": "198.51.100.0/24",
+        "asn": "AS99999_BOTNET",
+        "connection_age_days": 0.11042648888435816,
+        "reported_height": 239,
+        "is_backbone": false
+      },
+      {
+        "node_id": "ATTACKER_PEER_04",
+        "ip": "198.51.100.14",
+        "subnet": "198.51.100.0/24",
+        "asn": "AS99999_BOTNET",
+        "connection_age_days": 0.056805307498997024,
+        "reported_height": 239,
+        "is_backbone": false
+      },
+      {
+        "node_id": "ATTACKER_PEER_05",
+        "ip": "198.51.100.15",
+        "subnet": "198.51.100.0/24",
+        "asn": "AS99999_BOTNET",
+        "connection_age_days": 0.502338448729943,
+        "reported_height": 239,
+        "is_backbone": false
+      },
+      {
+        "node_id": "ATTACKER_PEER_06",
+        "ip": "198.51.100.16",
+        "subnet": "198.51.100.0/24",
+        "asn": "AS99999_BOTNET",
+        "connection_age_days": 0.7760926185147978,
+        "reported_height": 239,
+        "is_backbone": false
+      },
+      {
+        "node_id": "ATTACKER_PEER_07",
+        "ip": "198.51.100.17",
+        "subnet": "198.51.100.0/24",
+        "asn": "AS99999_BOTNET",
+        "connection_age_days": 0.424931123307175,
+        "reported_height": 239,
+        "is_backbone": false
+      }
+    ]
+  },
+  "agentic_analysis": {
+    "orchestration": "LangGraph StateGraph (collect -> 4 agents -> aggregate -> human_review)",
+    "node_trace": [
+      "collect",
+      "finney_agent",
+      "eclipse_agent",
+      "sybil_agent",
+      "wallet_agent",
+      "aggregate",
+      "human_review"
+    ],
+    "agents": {
+      "Sybil": {
+        "risk": 0.201,
+        "critical": false,
+        "summary": "Sybil Risk: 0.20. No significant Sybil clustering.",
+        "evidence": [
+          "Funded by known exchange hub 0x435897ee...; funding-graph clustering not applicable.",
+          "Candidate account is newborn (0.0 days old)."
+        ],
+        "indicators": [
+          {
+            "name": "Burst Funding Siblings",
+            "raw_value": "0 siblings (CV=1.00)",
+            "score": 0.05,
+            "weight": 0.35,
+            "description": "Accounts funded by the same upstream entity within 5 minutes with identical amounts"
+          },
+          {
+            "name": "Closed-Loop Transfer Ratio",
+            "raw_value": "0.0%",
+            "score": 0.0,
+            "weight": 0.25,
+            "description": "Fraction of candidate transactions circulating exclusively among sibling cluster"
+          },
+          {
+            "name": "Activity Similarity",
+            "raw_value": "0.00",
+            "score": 0.0,
+            "weight": 0.25,
+            "description": "Counterparty Jaccard similarity across sibling accounts"
+          },
+          {
+            "name": "Account Freshness",
+            "raw_value": "0.0 days",
+            "score": 0.85,
+            "weight": 0.15,
+            "description": "Time elapsed since first on-chain funding"
+          },
+          {
+            "name": "Layered Funding",
+            "raw_value": "direct",
+            "score": 0.05,
+            "weight": 0.2,
+            "description": "Funding routed through a pass-through account that forwarded most of what it received"
+          }
+        ]
+      },
+      "Wallet": {
+        "risk": 0.04,
+        "critical": false,
+        "summary": "Wallet Risk: 0.04. Clean, unflagged transaction history.",
+        "evidence": [
+          "Account has no abnormal transaction history."
+        ],
+        "indicators": [
+          {
+            "name": "Transaction History",
+            "raw_value": "0 outgoing txs",
+            "score": 0.04,
+            "weight": 1.0,
+            "description": "Account has clean outgoing transaction record"
+          }
+        ]
+      },
+      "Finney": {
+        "risk": 0.069,
+        "critical": false,
+        "summary": "Finney Risk: 0.07. Clean transaction settlement record.",
+        "evidence": [
+          "No conflicting mempool sightings or withheld block propagation anomalies."
+        ],
+        "indicators": [
+          {
+            "name": "Mempool Conflict Status",
+            "raw_value": "CLEAN",
+            "score": 0.05,
+            "weight": 0.45,
+            "description": "Presence of conflicting mempool transactions with different destination addresses"
+          },
+          {
+            "name": "Hidden Block Withholding",
+            "raw_value": "NONE",
+            "score": 0.05,
+            "weight": 0.35,
+            "description": "Block containing self-transfer was withheld prior to merchant payment release"
+          },
+          {
+            "name": "Propagation Delay Anomaly",
+            "raw_value": "0.0x baseline",
+            "score": 0.05,
+            "weight": 0.2,
+            "description": "Block delivery arrival lag relative to network propagation median"
+          }
+        ]
+      },
+      "Eclipse": {
+        "risk": 0.922,
+        "critical": true,
+        "summary": "Eclipse Risk: 0.92. CRITICAL Eclipse routing table monopolization detected!",
+        "evidence": [
+          "Severe peer ASN concentration: HHI=1.00 across only 1 autonomous system(s).",
+          "Routing table takeover: 100% of peers sit in unverified ASN AS99999_BOTNET and 100% of connections are under 2 days old.",
+          "Critical backbone isolation: only 0.0% of peers connect to honest core.",
+          "NetworkX routing vulnerability: only 0 node-disjoint path(s) to honest backbone.",
+          "Coordinated peer churn: 8 of 8 connections established within the past 2 days.",
+          "Partitioned view: 100.0% of peers report stale block heights lagging consensus tip."
+        ],
+        "indicators": [
+          {
+            "name": "Herfindahl ASN Concentration",
+            "raw_value": "HHI=1.00 (1 unique ASNs)",
+            "score": 0.95,
+            "weight": 0.25,
+            "description": "Concentration index of peer routing tables across autonomous systems"
+          },
+          {
+            "name": "Backbone Overlap",
+            "raw_value": "0.0% (0/8)",
+            "score": 1.0,
+            "weight": 0.2,
+            "description": "Proportion of peer connections linked to verified honest network backbone"
+          },
+          {
+            "name": "Disjoint Paths to Core",
+            "raw_value": "0 independent paths",
+            "score": 0.95,
+            "weight": 0.2,
+            "description": "NetworkX topological node-disjoint paths connecting candidate to honest core"
+          },
+          {
+            "name": "Peer Freshness",
+            "raw_value": "100.0% <2 days (avg 0.4 days)",
+            "score": 0.9,
+            "weight": 0.15,
+            "description": "Share of newborn connections; eclipsing peers are predominantly fresh"
+          },
+          {
+            "name": "Tip Lag",
+            "raw_value": "100.0% lagging peers",
+            "score": 1.0,
+            "weight": 0.1,
+            "description": "Percentage of peers broadcasting stale / partitioned chain tip heights"
+          },
+          {
+            "name": "Peer Count",
+            "raw_value": "8 peers",
+            "score": 0.05,
+            "weight": 0.1,
+            "description": "Degree centrality and starvation exposure of the candidate node"
+          }
+        ]
+      }
+    },
+    "positive_trust": {
+      "I": 0.47,
+      "T": 0.91,
+      "N": 0.438,
+      "H": 0.275,
+      "B": 0.7
+    },
+    "AR": 0.359,
+    "PT": 0.547,
+    "TF": 0.585,
+    "TV": 0.7,
+    "recommendation": "REJECT",
+    "escalation_flag": true,
+    "escalation_reasons": [
+      "Eclipse risk 0.92 exceeds escalation threshold (0.75)",
+      "Eclipse agent flagged critical routing table monopoly"
+    ]
+  },
+  "admin_decision": {
+    "action": "REJECT",
+    "reason": "Trust Factor (0.58) strictly below threshold TV (0.70)",
+    "decided_by": "AutoAdminPolicy"
+  },
+  "outcome": {
+    "candidate_admitted": false
+  }
+}

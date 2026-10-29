@@ -1,0 +1,360 @@
+{
+  "protocol": {
+    "train_seed": 7,
+    "test_seeds": [
+      42,
+      1,
+      2,
+      3,
+      4
+    ],
+    "n_per_population": 120,
+    "objective": "balanced accuracy of the formula-only policy, ties broken by widest threshold margin",
+    "grid": {
+      "tv": [
+        0.5,
+        0.9,
+        0.005
+      ],
+      "w_pt": [
+        0.3,
+        0.8,
+        0.05
+      ]
+    }
+  },
+  "default_rule": {
+    "tv": 0.7,
+    "w_pt": 0.6,
+    "w_ar": 0.4
+  },
+  "calibrated_rule": {
+    "tv": 0.8,
+    "w_pt": 0.3,
+    "w_ar": 0.7,
+    "train_balanced_accuracy": 1.0,
+    "train_margin": 0.0399
+  },
+  "per_test_seed": {
+    "42": {
+      "formula_default": {
+        "accuracy": 0.6583,
+        "balanced_accuracy": 0.6746,
+        "precision": 1.0,
+        "recall": 0.3492,
+        "fpr": 0.0,
+        "fnr": 0.6508,
+        "confusion_matrix": {
+          "TP": 22,
+          "FP": 0,
+          "TN": 57,
+          "FN": 41
+        }
+      },
+      "escalation_default": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      },
+      "formula_calibrated": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      },
+      "escalation_calibrated": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      }
+    },
+    "1": {
+      "formula_default": {
+        "accuracy": 0.6583,
+        "balanced_accuracy": 0.6746,
+        "precision": 1.0,
+        "recall": 0.3492,
+        "fpr": 0.0,
+        "fnr": 0.6508,
+        "confusion_matrix": {
+          "TP": 22,
+          "FP": 0,
+          "TN": 57,
+          "FN": 41
+        }
+      },
+      "escalation_default": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      },
+      "formula_calibrated": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      },
+      "escalation_calibrated": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      }
+    },
+    "2": {
+      "formula_default": {
+        "accuracy": 0.6583,
+        "balanced_accuracy": 0.6746,
+        "precision": 1.0,
+        "recall": 0.3492,
+        "fpr": 0.0,
+        "fnr": 0.6508,
+        "confusion_matrix": {
+          "TP": 22,
+          "FP": 0,
+          "TN": 57,
+          "FN": 41
+        }
+      },
+      "escalation_default": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      },
+      "formula_calibrated": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      },
+      "escalation_calibrated": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      }
+    },
+    "3": {
+      "formula_default": {
+        "accuracy": 0.65,
+        "balanced_accuracy": 0.6667,
+        "precision": 1.0,
+        "recall": 0.3333,
+        "fpr": 0.0,
+        "fnr": 0.6667,
+        "confusion_matrix": {
+          "TP": 21,
+          "FP": 0,
+          "TN": 57,
+          "FN": 42
+        }
+      },
+      "escalation_default": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      },
+      "formula_calibrated": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      },
+      "escalation_calibrated": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      }
+    },
+    "4": {
+      "formula_default": {
+        "accuracy": 0.6583,
+        "balanced_accuracy": 0.6746,
+        "precision": 1.0,
+        "recall": 0.3492,
+        "fpr": 0.0,
+        "fnr": 0.6508,
+        "confusion_matrix": {
+          "TP": 22,
+          "FP": 0,
+          "TN": 57,
+          "FN": 41
+        }
+      },
+      "escalation_default": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      },
+      "formula_calibrated": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      },
+      "escalation_calibrated": {
+        "accuracy": 1.0,
+        "balanced_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "confusion_matrix": {
+          "TP": 63,
+          "FP": 0,
+          "TN": 57,
+          "FN": 0
+        }
+      }
+    }
+  },
+  "mean_over_test_seeds": {
+    "formula_default": {
+      "accuracy": 0.6566,
+      "balanced_accuracy": 0.673,
+      "precision": 1.0,
+      "recall": 0.346,
+      "fpr": 0.0
+    },
+    "escalation_default": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "fpr": 0.0
+    },
+    "formula_calibrated": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "fpr": 0.0
+    },
+    "escalation_calibrated": {
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "fpr": 0.0
+    }
+  }
+}

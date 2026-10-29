@@ -1,0 +1,14 @@
+# ASTRA runtime and test dependencies (Python 3.10+).
+# Tested with Python 3.14 and: web3 8.0.0, eth-account 0.14.0, networkx 3.7, langgraph 1.2.14,
+# streamlit 1.65.0, pandas 3.0.6, numpy 2.5.3, scikit-learn 1.9.1, rich 15.0.0, pytest 9.1.1.
+web3>=7.0.0
+eth-account>=0.13.0
+networkx>=3.0
+langgraph>=0.2.0
+streamlit>=1.40.0
+pandas>=2.0
+numpy>=1.26
+scikit-learn>=1.4
+rich>=13.0
+python-dotenv>=1.0.0
+pytest>=8.0

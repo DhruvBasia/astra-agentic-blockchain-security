@@ -4,8 +4,8 @@
 **Researchers:** Dhruv Basia & Amisha Rawat  
 **Supervisor:** Prof. Rahul Johari  
 
-### Demo video (2 min)
-**▶ Watch: _link to be added_** — an attack is launched on a local Ethereum chain (Ganache), the LangGraph multi-agent graph analyses it, pauses for the human administrator, and the run is saved; followed by the benchmark results.
+### Demo video (4 min)
+**[▶ Watch on YouTube](https://youtu.be/p092B3Q_7OI)** — the four pre-admission attacks explained, how ASTRA's agents and Trust Factor decide, then all four attacks run live on a local Ethereum chain (Ganache): the LangGraph multi-agent graph analyses each one, pauses for the human administrator, and the run is saved. The four runs shown are in [`results/attack_runs/`](results/attack_runs/) (`20261029_*`).
 
 ### Reproduce in three commands
 ```bash
